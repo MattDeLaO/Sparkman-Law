@@ -1,21 +1,38 @@
 import React from "react"
-import { Link } from "gatsby"
+import styled from 'styled-components'
+import { Layout } from '../components/Layout'
+import { Header } from '../components/Header'
+import Gavel from '../images/gavel2.jpg';
 
-import Layout from "../components/layout"
-import Image from "../components/image"
-import SEO from "../components/seo"
+export const Parallax = styled.div`
+display: flex;
+flex-direction: column;
+min-height: 80vh;
+  position: relative;
+  ::before {
+    content: " ";
+    display: block;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url(${props => props.img});
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    z-index: -1;
+    opacity: ${props => (props.opacity ? props.opacity : 0.6)};
+}
+`
 
 const IndexPage = () => (
   <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link> <br />
-    <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
+    <Header />
+    <Parallax img={Gavel} opacity={.3}>
+
+    </Parallax>
+    <div>This is some info</div>
   </Layout>
 )
 

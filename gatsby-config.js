@@ -3,15 +3,42 @@ module.exports = {
     title: `Gatsby Default Starter`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
     author: `@gatsbyjs`,
+    menuLinks: [
+      {
+        name: 'Services',
+        link: '/Services',
+      },
+      {
+        name: 'About',
+        link: '/About',
+      },
+      {
+        name: 'Why Sparkman Law?',
+        link: '/WhySparkman',
+      },
+      {
+        name: 'Contact',
+        link: '/Contact',
+      }
+    ]
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
       },
+    },
+    {
+      resolve: 'gatsby-plugin-web-font-loader',
+      options: {
+        google: {
+          families: ['Libre Baskerville', 'Quicksand']
+        }
+      }
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
