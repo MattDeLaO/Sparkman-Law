@@ -7,7 +7,7 @@ import Gavel from '../images/gavel2.jpg';
 export const Parallax = styled.div`
 display: flex;
 flex-direction: column;
-min-height: 80vh;
+min-height: 88vh;
   position: relative;
   ::before {
     content: " ";
@@ -32,7 +32,6 @@ const IndexPage = () => (
     <Parallax img={Gavel} opacity={.3}>
 
     </Parallax>
-    <div>This is some info</div>
   </Layout>
 )
 

@@ -1,11 +1,28 @@
-import React from 'react'
-import { Link, useStaticQuery, graphql } from 'gatsby'
-import styled from 'styled-components'
-import { FiTwitter, FiInstagram, FiLinkedin, FiFacebook } from "react-icons/fi"; 
+import React, { useState } from 'react';
+import { Link, useStaticQuery, graphql } from 'gatsby';
+import styled from 'styled-components';
+import { FiMenu, FiX } from "react-icons/fi";
+import { useSpring, animated } from 'react-spring';
+import { SocialMedia } from './SocialMedia';
 
+const DesktopView = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  align-items: center;
+@media screen and (min-width: 320px) {
+  display: none;
+}
+@media screen and (min-width: 768px) {
+  display: none;
+}
+@media screen and (min-width: 1224px) {
+  display: flex;
+}
+`
 const HeaderWrapper = styled.div`
 display: flex;
-min-height: 10vh;
+min-height: 12vh;
 justify-content: space-evenly;
 align-items: center;
 color: black;
@@ -24,46 +41,29 @@ align-items: center;
 height: 100%;
 width: 20%;
 `
-const PhoneNumber = styled.a`
-color: black;
-text-decoration: none;
+export const Menu = styled.button`
+    position: absolute;
+    color: black;
+    background: white;
+    right: 3vw;
+    padding: 2px;
+    &:active {
+      border: none;
+    }
+  `
+
+const MobileView = styled.div`
 display: flex;
-justify-content: center;
 align-items: center;
-:hover {
-  color: blue;
+@media screen and (min-width: 320px) {
+  display: flex;
 }
-`
-const PhoneNumberSection = styled.div`
-display: flex;
-`
-const SocialMediaIcons = styled.a`
-transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-border-radius: 10px;
-background-image: linear-gradient(to right, #FFE270 0%, #FF8233 50%, #ff6300 100%);
-background-size: 200% auto;
-transition: 0.2s;
-padding: 10px;
-margin: 5px;
-color: #292929;
-cursor: pointer;
-box-shadow: 0 0 20px #eee;
-:hover {
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-  background-position: left center;
-  color: white;
+@media screen and (min-width: 768px) {
+  display: flex;
 }
-`
-const SocialMediaLinksSection = styled.div`
-display: flex;
-`
-const SocialMediaSection = styled.div`
-display: flex;
-height: 100%;
-flex-direction: column;
-justify-content: space-evenly;
-align-items: center;
-margin-right: 10px;
+@media screen and (min-width: 1224px) {
+  display: none;
+}
 `
 
 const StyledContactLink = styled(props => <Link {...props} />)`
@@ -85,9 +85,16 @@ text-transform: uppercase;
   color: inherit;
   }
 :hover {
+  padding: 15px;
   box-shadow: 0 6px 6px rgba(0,0,0,0.15);
   background: white;
+  cursor: pointer;
   color: black;
+}
+:active {
+  background-color: #D6D6D6;
+  color: white;
+  box-shadow: 0 0 0;
 }
 `
 const StyledLink = styled(props => <Link {...props} />)`
@@ -103,14 +110,36 @@ color: black;
 box-shadow: 0 5px 4px rgba(0,0,0,0.10);
 transition: 0.2s;
 text-transform: uppercase;
-  a {
-  text-decoration: none;
-  color: inherit;
-  }
+text-decoration: none;
 :hover {
   box-shadow: 0 6px 6px rgba(0,0,0,0.2);
+  padding: 15px;
+  cursor: pointer;
+}
+:active {
+  background-color: #D6D6D6;
+  color: white;
+  box-shadow: 0 0 0;
 }
 `
+export const NavLinkList = styled.div`
+    display: flex;
+    position: absolute;
+    height: 75vh;
+    top: 12vh;
+    right: 0;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-width: 65vw;
+    background: white;
+    border-left: 1px solid #494949;
+    border-bottom: 1px solid #494949;
+    border-bottom-left-radius: 5px;
+    -webkit-box-shadow: -4px 4px 5px -1px rgba(0,0,0,0.37);
+    -moz-box-shadow: -4px 4px 5px -1px rgba(0,0,0,0.37);
+    box-shadow: -4px 4px 5px -1px rgba(0,0,0,0.37);
+  `
 export const Header = () => {
   const links = useStaticQuery(graphql`
     query {
@@ -126,43 +155,59 @@ export const Header = () => {
       }
       `
   );
-  
+  const [isOpen, setNavState] = useState(false);
+  const handleOnClick = () => {
+    setNavState(isOpen => !isOpen)
+  }
+  const animateProps = useSpring({ opacity: 1, from: { opacity: 0 } })
   const SitePages = links.site.siteMetadata.menuLinks;
   return (
     <HeaderWrapper>
+      <DesktopView>
         <Logo>Sparkman Law</Logo>
         <Links>
           {
             SitePages.map(page => (
-            page.name === 'Contact'
-              ? <StyledContactLink>Contact</StyledContactLink>
-              : (
-                <StyledLink to={page.StyledLink} id={page.name}>
-                  {page.name}
-                </StyledLink>
+              page.name === 'Contact'
+                ? <StyledContactLink>Contact</StyledContactLink>
+                : (
+                  <StyledLink to={page.link} id={page.name}>
+                    {page.name}
+                  </StyledLink>
                 )
             ))
           }
         </Links>
-      <SocialMediaSection>
-        <SocialMediaLinksSection>
-          <SocialMediaIcons>
-            <FiTwitter size={20}/>
-          </SocialMediaIcons>
-          <SocialMediaIcons>
-            <FiFacebook size={20}/>
-          </SocialMediaIcons>
-          <SocialMediaIcons>
-            <FiInstagram size={20}/>
-          </SocialMediaIcons>
-          <SocialMediaIcons>
-            <FiLinkedin size={20}/>
-          </SocialMediaIcons>
-        </SocialMediaLinksSection> 
-        <PhoneNumberSection>
-          <PhoneNumber href="tel: +1-479-867-5309">+1-479-867-5309</PhoneNumber>
-        </PhoneNumberSection>
-      </SocialMediaSection>
-      </HeaderWrapper>
+        <SocialMedia />
+      </DesktopView>
+      <MobileView>
+        Sparkman Law
+        <Menu>
+          {
+            isOpen
+              ? <div><FiX size={30} onClick={handleOnClick} /></div>
+              : <div><FiMenu size={30} onClick={handleOnClick} /></div>
+          }
+        </Menu>
+        {
+          isOpen && (
+            <NavLinkList>
+              {
+            SitePages.map(page => (
+              page.name === 'Contact'
+                ? <StyledContactLink>Contact</StyledContactLink>
+                : (
+                  <StyledLink to={page.link} id={page.name}>
+                    { page.name }
+                  </StyledLink>
+                )
+            ))
+          }
+              <SocialMedia />
+            </NavLinkList>
+          )
+        }
+      </MobileView>
+    </HeaderWrapper>
   )
 }
