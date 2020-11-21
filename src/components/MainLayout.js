@@ -4,10 +4,12 @@ import styled from 'styled-components'
 const PageWrapper = styled.div`
 min-height: 100vh;
 `
-export const Layout = ({children}) => {
+const MainLayout = ({children}) => {
   return (
     <PageWrapper>
       {children}
     </PageWrapper>
   )
 }
+
+export default MainLayout
