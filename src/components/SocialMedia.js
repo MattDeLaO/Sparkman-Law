@@ -1,67 +1,92 @@
-import React from 'react'
-import { FiTwitter, FiInstagram, FiLinkedin, FiFacebook } from "react-icons/fi";
-import styled from 'styled-components'
+import React from "react"
+import { FiTwitter, FiInstagram, FiYoutube, FiFacebook } from "react-icons/fi"
+import styled from "styled-components"
 
 const PhoneNumber = styled.a`
-color: black;
-text-decoration: none;
-display: flex;
-justify-content: center;
-align-items: center;
-:hover {
-  color: blue;
-}
+  color: black;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  :hover {
+    color: blue;
+  }
 `
 const PhoneNumberSection = styled.div`
-display: flex;
+  display: flex;
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
 `
 const SocialMediaIcons = styled.a`
-transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-border-radius: 10px;
-background-image: linear-gradient(to right, #FFE270 0%, #FF8233 50%, #ff6300 100%);
-background-size: 200% auto;
-transition: 0.2s;
-padding: 10px;
-margin: 5px;
-color: #292929;
-cursor: pointer;
-box-shadow: 0 0 20px #eee;
-:hover {
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-  background-position: left center;
+  position: relative;
+  border: 4px solid transparent;
+  border-radius: 16px;
+  background: black;
+  background-clip: padding-box;
   color: white;
-}
+  padding: 10px;
+  cursor: pointer;
+  box-shadow: 0 0 20px #eee;
+  margin: 5px;
+  :hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  }
+  :after {
+    position: absolute;
+    top: -4px;
+    bottom: -4px;
+    left: -4px;
+    right: -4px;
+    background: linear-gradient(45deg, orange, red);
+    content: "";
+    z-index: -1;
+    border-radius: 16px;
+  }
 `
 const SocialMediaLinksSection = styled.div`
-display: flex;
+  display: flex;
 `
 const ContactSection = styled.div`
-display: flex;
-height: 100%;
-flex-direction: column;
-justify-content: space-evenly;
-align-items: center;
-margin-right: 10px;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-right: 10px;
 `
 export const SocialMedia = () => {
   return (
     <ContactSection>
       <SocialMediaLinksSection>
-        <SocialMediaIcons>
-          <FiTwitter size={20} />
+        <SocialMediaIcons
+          href="https://twitter.com/sparkmanlaw"
+          target="_blank"
+        >
+          <FiTwitter size={30} />
         </SocialMediaIcons>
-        <SocialMediaIcons>
-          <FiFacebook size={20} />
+        <SocialMediaIcons
+          href="https://Facebook.com/sparkmanlawnwa"
+          target="_blank"
+        >
+          <FiFacebook size={30} />
         </SocialMediaIcons>
-        <SocialMediaIcons>
-          <FiInstagram size={20} />
+        <SocialMediaIcons
+          href="https://instagram.com/sparkmanlawnwa"
+          target="_blank"
+        >
+          <FiInstagram size={30} />
         </SocialMediaIcons>
-        <SocialMediaIcons>
-          <FiLinkedin size={20} />
+        <SocialMediaIcons
+          href="https://www.youtube.com/channel/UCbCDnEUTR17DtK6akCjEyNw"
+          target="_blank"
+        >
+          <FiYoutube size={30} />
         </SocialMediaIcons>
       </SocialMediaLinksSection>
       <PhoneNumberSection>
-        <a href="tel: +1-479-867-5309">+1-479-867-5309</a>
+        <PhoneNumber href="tel: +1-479-867-5309">+1-479-867-5309</PhoneNumber>
       </PhoneNumberSection>
     </ContactSection>
   )
