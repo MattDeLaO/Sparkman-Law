@@ -32,6 +32,7 @@ const HeaderWrapper = styled.div`
   display: flex;
   top: 0;
   positon: sticky;
+  position: -webkit-sticky;
   min-height: 12vh;
   justify-content: space-evenly;
   align-items: center;

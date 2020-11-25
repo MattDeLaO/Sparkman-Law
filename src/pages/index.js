@@ -56,7 +56,7 @@ export const Parallax = styled.div`
     opacity: ${props => (props.opacity ? props.opacity : 0.6)};
   }
 `
-const AboutSection = styled.div`
+const ServicesSection = styled.div`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -243,7 +243,7 @@ const Table = styled.table`
     background: #f9f9f9;
   }
   th {
-    border: 1px solid;
+    border: 4px solid;
     border-image: linear-gradient(45deg, orange, red) 1;
     margin-bottom: 10px;
     padding: 25px;
@@ -283,72 +283,9 @@ const IndexPage = () => {
           </ImageWrapper>
         </Spacer>
 
-        <AboutSection id="About">
+        <ServicesSection id="About">
           <ScheduleConsultation />
-          <SectionTitle primary>Sarah Sparkman</SectionTitle>
-          <Content primary>
-            <p>
-              Sarah Sparkman has been representing clients in Arkansas for more
-              than a decade. When Sarah takes on your case, she knows that
-              you’re trusting her to fight for you.
-            </p>
-            <p>
-              Sarah’s legal experience is unparalleled in Northwest Arkansas.
-              Part of what she has done:
-            </p>
-            <StyledList>
-              <BulletPoint
-                icon={<MdGavel size={30} style={{ color: "#8BC34A" }} />}
-                text=" Personally handle more than 5,000 criminal and traffic cases in
-                the last 5 years alone"
-              />
-              <BulletPoint
-                icon={<MdGavel size={30} style={{ color: "#8BC34A" }} />}
-                text="Take on big banks and unethical landlords who attempted to
-                illegally remove families from their homes"
-              />
-              <BulletPoint
-                icon={<MdGavel size={30} style={{ color: "#8BC34A" }} />}
-                text="Work closely with state legislators to pass bills to protect
-                victims of domestic violence"
-              />
-              <BulletPoint
-                icon={<MdGavel size={30} style={{ color: "#8BC34A" }} />}
-                text="Advise city government officials including planners, city
-                council members, and police officers, on legal matters"
-              />
-              <BulletPoint
-                icon={<MdGavel size={30} style={{ color: "#8BC34A" }} />}
-                text="Teach legal topics and physical training at the Northwest
-                Arkansas Law Enforcement Training Academy"
-              />
-              <BulletPoint
-                icon={<MdGavel size={30} style={{ color: "#8BC34A" }} />}
-                text="Try cases in Circuit and District Courts throughout the state of
-                Arkansas."
-              />
-            </StyledList>
-            <p>
-              In addition to fighting for her clients, Sarah is a sought out
-              speaker in the state of Arkansas on the topics of social media and
-              attorney ethics, mental health issues and public service.
-            </p>
-            <p>
-              Sarah is a proud graduate of the University of Arkansas and the
-              Arkansas School for Mathematics and Sciences. She lives in
-              Fayetteville with her husband and their two rescue dogs. An avid
-              fan of the Kansas City Royals, Sarah was named as a must-follow on
-              Twitter for the Major League Baseball postseason by the Sporting
-              News.
-            </p>
-            <p>
-              Have a criminal, traffic, or local law issue? Contact Sparkman Law
-              Firm for a consultation today.
-            </p>
-          </Content>
-        </AboutSection>
-        <BlackSection id="Services">
-          <SectionTitle>Services</SectionTitle>
+          <SectionTitle primary>Services</SectionTitle>
           <ServicesContent secondary>
             <Table>
               <tbody>
@@ -430,6 +367,69 @@ const IndexPage = () => {
               </tbody>
             </Table>
           </ServicesContent>
+        </ServicesSection>
+        <BlackSection id="Services">
+          <SectionTitle>Services</SectionTitle>
+          <Content>
+            <p>
+              Sarah Sparkman has been representing clients in Arkansas for more
+              than a decade. When Sarah takes on your case, she knows that
+              you’re trusting her to fight for you.
+            </p>
+            <p>
+              Sarah’s legal experience is unparalleled in Northwest Arkansas.
+              Part of what she has done:
+            </p>
+            <StyledList>
+              <BulletPoint
+                icon={<MdGavel size={30} style={{ color: "#8BC34A" }} />}
+                text=" Personally handle more than 5,000 criminal and traffic cases in
+                the last 5 years alone"
+              />
+              <BulletPoint
+                icon={<MdGavel size={30} style={{ color: "#8BC34A" }} />}
+                text="Take on big banks and unethical landlords who attempted to
+                illegally remove families from their homes"
+              />
+              <BulletPoint
+                icon={<MdGavel size={30} style={{ color: "#8BC34A" }} />}
+                text="Work closely with state legislators to pass bills to protect
+                victims of domestic violence"
+              />
+              <BulletPoint
+                icon={<MdGavel size={30} style={{ color: "#8BC34A" }} />}
+                text="Advise city government officials including planners, city
+                council members, and police officers, on legal matters"
+              />
+              <BulletPoint
+                icon={<MdGavel size={30} style={{ color: "#8BC34A" }} />}
+                text="Teach legal topics and physical training at the Northwest
+                Arkansas Law Enforcement Training Academy"
+              />
+              <BulletPoint
+                icon={<MdGavel size={30} style={{ color: "#8BC34A" }} />}
+                text="Try cases in Circuit and District Courts throughout the state of
+                Arkansas."
+              />
+            </StyledList>
+            <p>
+              In addition to fighting for her clients, Sarah is a sought out
+              speaker in the state of Arkansas on the topics of social media and
+              attorney ethics, mental health issues and public service.
+            </p>
+            <p>
+              Sarah is a proud graduate of the University of Arkansas and the
+              Arkansas School for Mathematics and Sciences. She lives in
+              Fayetteville with her husband and their two rescue dogs. An avid
+              fan of the Kansas City Royals, Sarah was named as a must-follow on
+              Twitter for the Major League Baseball postseason by the Sporting
+              News.
+            </p>
+            <p>
+              Have a criminal, traffic, or local law issue? Contact Sparkman Law
+              Firm for a consultation today.
+            </p>
+          </Content>
         </BlackSection>
         <WhiteSection id="WhySparkmanLaw">
           <SectionTitle primary>Why Sparkman Law Firm?</SectionTitle>
