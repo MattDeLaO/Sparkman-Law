@@ -25,6 +25,7 @@ const Content = styled.div`
   }
 `
 const ServicesContent = styled(Content)`
+  align-items: flex-start;
   @media screen and (min-width: 320px) {
     flex-direction: column;
   }
@@ -283,7 +284,7 @@ const IndexPage = () => {
           </ImageWrapper>
         </Spacer>
 
-        <ServicesSection id="About">
+        <ServicesSection id="Services">
           <ScheduleConsultation />
           <SectionTitle primary>Services</SectionTitle>
           <ServicesContent secondary>
@@ -368,8 +369,8 @@ const IndexPage = () => {
             </Table>
           </ServicesContent>
         </ServicesSection>
-        <BlackSection id="Services">
-          <SectionTitle>Services</SectionTitle>
+        <BlackSection id="About">
+          <SectionTitle>About</SectionTitle>
           <Content>
             <p>
               Sarah Sparkman has been representing clients in Arkansas for more
