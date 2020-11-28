@@ -25,15 +25,18 @@ const Content = styled.div`
   }
 `
 const ServicesContent = styled(Content)`
-  align-items: flex-start;
+ 
   @media screen and (min-width: 320px) {
     flex-direction: column;
+    align-items: center;
   }
   @media screen and (min-width: 768px) {
     flex-direction: column;
+    align-items: center;
   }
   @media screen and (min-width: 1224px) {
     flex-direction: row;
+    align-items: flex-start;
   }
 `
 export const Parallax = styled.div`
