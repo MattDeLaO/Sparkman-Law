@@ -11,7 +11,7 @@ import {
   StyledBulletList,
 } from "../components"
 import { FcApproval } from "react-icons/fc"
-import Sparks from "../images/Sparks.jpg"
+import Sparks from "../images/SparksBackground.jpg"
 import { MdGavel } from "react-icons/md"
 
 export const Parallax = styled.div`
