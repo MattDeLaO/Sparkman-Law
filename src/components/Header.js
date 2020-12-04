@@ -207,7 +207,7 @@ export const Header = ({backgroundActive}) => {
   }
   const SitePages = links.site.siteMetadata.menuLinks
   return (
-    <HeaderWrapper backgroundActive={backgroundActive}>
+    <HeaderWrapper>
       <DesktopView>
         <Logo>
           <Img

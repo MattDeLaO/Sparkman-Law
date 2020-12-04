@@ -1,19 +1,18 @@
-import React, { useState } from "react"
+import React from "react"
 import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
-import MainLayout from "../components/MainLayout"
-import { Header } from "../components/Header"
-import BackgroundImage from "gatsby-background-image"
+import MainLayout from '../components/MainLayout'
+import {
+  Header,
+  ScheduleConsultation,
+  Table,
+  Section,
+  StyledBulletList,
+} from "../components"
 import { FcApproval } from "react-icons/fc"
 import Sparks from "../images/Sparks.jpg"
 import { MdGavel } from "react-icons/md"
-import { ScheduleConsultation } from "../components/ScheduleConsultation"
-import { Table } from "../components/Table"
-import { Section } from "../components/Section"
-import { StyledBulletList } from "../components/StyledBulletList"
-import { Services } from "../components/Services"
-import "../styles/background-image.css"
 
 export const Parallax = styled.div`
   display: flex;
@@ -237,19 +236,11 @@ const IndexPage = () => {
       }
     }
   `)
-  const [navBarActive, setNavBarStatus] = useState(false);
-  const changeBackground = () => {
-    if (window.scrollY > 12) {
-      setNavBarStatus(true)
-    } else {
-      setNavBarStatus(false)
-    }
-  }
-  window.addEventListener("scroll", changeBackground)
+
   return (
     <MainLayout>
       <Parallax img={Sparks} opacity={0.3}>
-      <Header backgroundActive={navBarActive}/>
+        <Header />
         <Spacer>
           <ImageWrapper>
             <Img fluid={image.file.childImageSharp.fluid} />
