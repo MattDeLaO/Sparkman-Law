@@ -73,7 +73,7 @@ export const SocialMedia = () => {
           <FiFacebook size={30} />
         </SocialMediaIcons>
         <SocialMediaIcons
-          href="https://instagram.com/sparkmanlawnwa"
+          href="https://instagram.com/sarahsparkmanlaw"
           target="_blank"
         >
           <FiInstagram size={30} />
@@ -86,7 +86,7 @@ export const SocialMedia = () => {
         </SocialMediaIcons>
       </SocialMediaLinksSection>
       <PhoneNumberSection>
-        <PhoneNumber href="tel: +1-479-867-5309">+1-479-867-5309</PhoneNumber>
+        <PhoneNumber href="tel: +1- 479-430-2701">479-430-2701</PhoneNumber>
       </PhoneNumberSection>
     </ContactSection>
   )

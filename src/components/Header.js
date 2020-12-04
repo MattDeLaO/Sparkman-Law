@@ -31,8 +31,7 @@ const DesktopNavContent = styled.div`
 const HeaderWrapper = styled.div`
   display: flex;
   top: 0;
-  positon: sticky;
-  position: -webkit-sticky;
+  z-index: 99;
   min-height: 12vh;
   justify-content: space-evenly;
   align-items: center;
@@ -181,7 +180,7 @@ export const NavLinkList = styled.div`
   -moz-box-shadow: -4px 4px 5px -1px rgba(0, 0, 0, 0.37);
   box-shadow: -4px 4px 5px -1px rgba(0, 0, 0, 0.37);
 `
-export const Header = () => {
+export const Header = ({backgroundActive}) => {
   const links = useStaticQuery(graphql`
     query {
       site {
@@ -208,7 +207,7 @@ export const Header = () => {
   }
   const SitePages = links.site.siteMetadata.menuLinks
   return (
-    <HeaderWrapper>
+    <HeaderWrapper backgroundActive={backgroundActive}>
       <DesktopView>
         <Logo>
           <Img

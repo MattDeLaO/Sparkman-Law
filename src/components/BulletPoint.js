@@ -8,6 +8,7 @@ align-items: center;
 justify: space-evenly;
 padding: 10px;
 margin-bottom: 10px;
+
 `
 const StyledIcon = styled.div`
 display: flex;
