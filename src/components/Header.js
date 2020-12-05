@@ -44,14 +44,6 @@ const Links = styled.div`
   height: 100%;
   padding-right: 3%;
 `
-const Logo = styled.div`
-  padding-left: 3%;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  height: 100%;
-  width: 20%;
-`
 export const Menu = styled.button`
   position: absolute;
   color: black;
@@ -180,7 +172,7 @@ export const NavLinkList = styled.div`
   -moz-box-shadow: -4px 4px 5px -1px rgba(0, 0, 0, 0.37);
   box-shadow: -4px 4px 5px -1px rgba(0, 0, 0, 0.37);
 `
-export const Header = ({backgroundActive}) => {
+export const Header = () => {
   const links = useStaticQuery(graphql`
     query {
       site {
@@ -189,13 +181,6 @@ export const Header = ({backgroundActive}) => {
           menuLinks {
             name
             link
-          }
-        }
-      }
-      image: file(relativePath: { eq: "SparkmanLogoFull.png" }) {
-        childImageSharp {
-          fixed(width: 160, height: 100) {
-            ...GatsbyImageSharpFixed
           }
         }
       }
@@ -209,12 +194,6 @@ export const Header = ({backgroundActive}) => {
   return (
     <HeaderWrapper>
       <DesktopView>
-        <Logo>
-          <Img
-            fixed={links.image.childImageSharp.fixed}
-            imgStyle={{ objectFit: "contain" }}
-          />
-        </Logo>
         <DesktopNavContent>
           <Links>
             {SitePages.map(page =>
@@ -231,10 +210,6 @@ export const Header = ({backgroundActive}) => {
         </DesktopNavContent>
       </DesktopView>
       <MobileView>
-        <Img
-          fixed={links.image.childImageSharp.fixed}
-          imgStyle={{ objectFit: "contain" }}
-        />
         <Menu>
           {isOpen ? (
             <FiX size={30} onClick={handleOnClick} />

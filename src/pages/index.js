@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
-import MainLayout from '../components/MainLayout'
+import MainLayout from "../components/MainLayout"
 import {
   Header,
   ScheduleConsultation,
@@ -11,12 +11,13 @@ import {
   StyledBulletList,
 } from "../components"
 import { FcApproval } from "react-icons/fc"
-import Sparks from "../images/SparksBackground.jpg"
+import HeroImage from "../images/HeroImage.jpg"
 import { MdGavel } from "react-icons/md"
 
 export const Parallax = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
   min-height: 100vh;
   position: relative;
   ::before {
@@ -30,14 +31,7 @@ export const Parallax = styled.div`
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
-    @media screen and (min-width: 320px) {
-    }
-    @media screen and (min-width: 768px) {
-      background-position: 0% 80%;
-    }
-    @media screen and (min-width: 1224px) {
-      background-position: 0% 30%;
-    }
+    background-position: center;
     position: absolute;
     z-index: -1;
     opacity: ${props => (props.opacity ? props.opacity : 0.6)};
@@ -185,15 +179,23 @@ const ServicesContentWrapper = styled.div`
   }
 `
 const Spacer = styled.div`
-  height: 40%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   flex-direction: column;
   margin-bottom: 5%;
   width: 100%;
   position: relative;
   z-index: 1;
+  @media screen and (min-width: 320px) {
+    height: 55vh;
+  }
+  @media screen and (min-width: 768px) {
+    height: 55vh;
+  }
+  @media screen and (min-width: 1224px) {
+    height: 30vh;
+  }
 `
 const Disclaimer = styled.p`
   max-width: 80%;
@@ -209,25 +211,25 @@ const Disclaimer = styled.p`
   }
 `
 const ImageWrapper = styled.div`
-  height: 20%;
-  -webkit-box-shadow: -4px 4px 5px -1px rgba(0, 0, 0, 0.37);
-  -moz-box-shadow: -4px 4px 5px -1px rgba(0, 0, 0, 0.37);
-  box-shadow: -4px 4px 5px -1px rgba(0, 0, 0, 0.37);
-
   @media screen and (min-width: 320px) {
-    width: 95%;
+    width: 40%;
   }
   @media screen and (min-width: 768px) {
-    with: 70%;
+    width: 40%;
   }
   @media screen and (min-width: 1224px) {
-    width: 45%;
+    width: 35%;
   }
+`
+const CenterImage = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `
 const IndexPage = () => {
   const image = useStaticQuery(graphql`
     query {
-      file(relativePath: { eq: "Sarah1.jpg" }) {
+      file(relativePath: { eq: "SparkmanLogoFull.png" }) {
         childImageSharp {
           fluid(quality: 90) {
             ...GatsbyImageSharpFluid
@@ -239,13 +241,14 @@ const IndexPage = () => {
 
   return (
     <MainLayout>
-      <Parallax img={Sparks} opacity={0.3}>
+      <Parallax img={HeroImage} opacity={1}>
         <Header />
-        <Spacer>
+        <Spacer />
+        <CenterImage>
           <ImageWrapper>
             <Img fluid={image.file.childImageSharp.fluid} />
           </ImageWrapper>
-        </Spacer>
+        </CenterImage>
         <ServicesSection id="Services">
           <ScheduleConsultation />
           <Section title="Services" primary>

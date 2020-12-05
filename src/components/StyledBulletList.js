@@ -25,6 +25,9 @@ const StyledList = styled.div`
   border-image: linear-gradient(45deg, orange, red) 1;
   padding: 3%;
   color: ${props => (props.primary ? "black" : "white")};
+  -webkit-box-shadow: -4px 4px 5px -1px rgba(0, 0, 0, 0.37);
+  -moz-box-shadow: -4px 4px 5px -1px rgba(0, 0, 0, 0.37);
+  box-shadow: -4px 4px 5px -1px rgba(0, 0, 0, 0.37);
 `
 export const StyledBulletList = ({ icon, listData, primary }) => {
   return (
