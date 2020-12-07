@@ -238,6 +238,7 @@ const CTASection = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+  height: 50vh;
   justify-content: flex-start;
   align-items: center;
   padding-bottom: 10%;
@@ -287,7 +288,6 @@ const IndexPage = () => {
         <Title>Sparkman Law Firm PLLC</Title>
         <StyledContactLink />
         <SocialMedia />
-        
       </CTASection>
       </Spacer>
         {/* <CenterImage>
