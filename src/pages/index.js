@@ -50,46 +50,45 @@ const ServicesSection = styled.div`
   padding-right: 5%;
   padding-left: 5%;
   padding-bottom: 12%;
-  position: relative;
   font-size: 2em;
   background: white;
-  :after {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    content: "";
-    background: inherit;
-    z-index: 2;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    transform-origin: top left;
-    transform: skewY(-8deg);
-  }
-  :before {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    content: "";
-    background: inherit;
-    z-index: 2;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    transform-origin: top right;
-    transform: skewY(8deg);
-  }
-  @media screen and (min-width: 320px) {
-    font-size: 1em;
-  }
-  @media screen and (min-width: 768px) {
-    font-size: 1.5em;
-  }
-  @media screen and (min-width: 1224px) {
-    font-size: 2em;
-  }
+  // :after {
+  //   position: absolute;
+  //   width: 100%;
+  //   height: 100%;
+  //   content: "";
+  //   background: inherit;
+  //   z-index: 2;
+  //   top: 0;
+  //   right: 0;
+  //   bottom: 0;
+  //   left: 0;
+  //   transform-origin: top left;
+  //   transform: skewY(-8deg);
+  // }
+  // :before {
+  //   position: absolute;
+  //   width: 100%;
+  //   height: 100%;
+  //   content: "";
+  //   background: inherit;
+  //   z-index: 2;
+  //   top: 0;
+  //   right: 0;
+  //   bottom: 0;
+  //   left: 0;
+  //   transform-origin: top right;
+  //   transform: skewY(8deg);
+  // }
+  // @media screen and (min-width: 320px) {
+  //   font-size: 1em;
+  // }
+  // @media screen and (min-width: 768px) {
+  //   font-size: 1.5em;
+  // }
+  // @media screen and (min-width: 1224px) {
+  //   font-size: 2em;
+  // }
 `
 const WhiteSection = styled.div`
   display: flex;
@@ -382,7 +381,7 @@ const IndexPage = () => {
             </ServicesContentWrapper>
           </Section>
         </ServicesSection>
-        <BlackSection id="About" zIndex={2}>
+        <BlackSection  id="About" zIndex={2}>
           <Section title="About">
             <p>
               Sarah Sparkman has been representing clients in Arkansas for more
