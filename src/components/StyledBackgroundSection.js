@@ -2,6 +2,52 @@ import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import styled from "styled-components"
 import BackgroundImage from "gatsby-background-image"
+import Img from 'gatsby-image'
+import { SocialMedia } from '../components/SocialMedia'
+import {StyledContactLink } from '../components/StyledContactLink'
+
+const Title = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+  text-shadow: 1px 1px 1px black;
+  @media screen and (min-width: 320px) {
+    font-size: 1.5em;
+  }
+  @media screen and (min-width: 768px) {
+    font-size: 4em;
+  }
+  @media screen and (min-width: 1224px) {
+    font-size: 4em;
+  }
+`
+const CTASection = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 50vh;
+  justify-content: flex-start;
+  align-items: center;
+  padding-bottom: 10%;
+`
+
+const ImageWrapper = styled.div`
+  @media screen and (min-width: 320px) {
+    width: 30%;
+  }
+  @media screen and (min-width: 768px) {
+    width: 20%;
+  }
+  @media screen and (min-width: 1224px) {
+    width: 10%;
+  }
+`
 
 const BackgroundSection = ({ className }) => {
   const data = useStaticQuery(
@@ -14,12 +60,20 @@ const BackgroundSection = ({ className }) => {
             }
           }
         }
+        logo: file(relativePath: { eq: "SparkmanLogo.png" }) {
+          childImageSharp {
+            fluid(quality: 90, maxWidth: 1920) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
       }
     `
   )
 
   // Set ImageData.
   const background = data.desktop.childImageSharp.fluid
+  const logo = data.logo.childImageSharp.fluid
 
   return (
     <BackgroundImage
@@ -27,6 +81,14 @@ const BackgroundSection = ({ className }) => {
       className={className}
       fluid={background}
     >
+      <CTASection>
+        <ImageWrapper>
+          <Img fluid={logo} alt="" />
+        </ImageWrapper>
+        <Title>Sparkman Law Firm PLLC</Title>
+        <StyledContactLink />
+        <SocialMedia />
+      </CTASection>
     </BackgroundImage>
   )
 }
@@ -34,7 +96,7 @@ const BackgroundSection = ({ className }) => {
 const StyledBackgroundSection = styled(BackgroundSection)`
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: flex-end;
   align-items: center;
   width: 100%;
   height: 100vh;

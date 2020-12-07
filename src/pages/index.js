@@ -15,8 +15,7 @@ import { FcApproval } from "react-icons/fc"
 import StyledBackgroundSection from '../components/StyledBackgroundSection' 
 import '../styles/background-image.css'
 import { MdGavel } from "react-icons/md"
-import { SocialMedia } from '../components/SocialMedia'
-import {StyledContactLink } from '../components/StyledContactLink'
+
 
 export const Parallax = styled.div`
   display: flex;
@@ -184,17 +183,6 @@ margin-top: 0;
     align-items: flex-start;
   }
 `
-const Spacer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  flex-direction: column;
-  margin-bottom: 5%;
-  width: 100%;
-  height: 1vh;
-  position: relative;
-  z-index: 1;
-`
 const Disclaimer = styled.p`
   max-width: 80%;
   text-align: center;
@@ -213,48 +201,7 @@ const Disclaimer = styled.p`
 //   align-items: center;
 //   justify-content: center;
 // `
-const Title = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  width: 100%;
-  color: white;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  text-align: center;
-  text-shadow: 1px 1px 1px black;
-  @media screen and (min-width: 320px) {
-    font-size: 1.5em;
-  }
-  @media screen and (min-width: 768px) {
-    font-size: 4em;
-  }
-  @media screen and (min-width: 1224px) {
-    font-size: 4em;
-  }
-`
-const CTASection = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 50vh;
-  justify-content: flex-start;
-  align-items: center;
-  padding-bottom: 10%;
-`
 
-const ImageWrapper = styled.div`
-  @media screen and (min-width: 320px) {
-    width: 30%;
-  }
-  @media screen and (min-width: 768px) {
-    width: 20%;
-  }
-  @media screen and (min-width: 1224px) {
-    width: 10%;
-  }
-`
 const IndexPage = () => {
   const image = useStaticQuery(graphql`
     query {
@@ -265,36 +212,12 @@ const IndexPage = () => {
           }
         }
       }
-      logo: file(relativePath: { eq: "SparkmanLogo.png" }) {
-        childImageSharp {
-          fluid(quality: 90, maxWidth: 1920) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
-      }
     }
   `)
-  const logo = image.logo.childImageSharp.fluid
-
   return (
     <MainLayout>
       <Header />
       <StyledBackgroundSection />
-      <Spacer>
-      <CTASection>
-        <ImageWrapper>
-          <Img fluid={logo} alt="" />
-        </ImageWrapper>
-        <Title>Sparkman Law Firm PLLC</Title>
-        <StyledContactLink />
-        <SocialMedia />
-      </CTASection>
-      </Spacer>
-        {/* <CenterImage>
-          <ImageWrapper>
-            <Img fluid={image.file.childImageSharp.fluid} />
-          </ImageWrapper>
-        </CenterImage> */}
         <ServicesSection id="Services">
           <ScheduleConsultation />
           <Section title="Services" primary>
