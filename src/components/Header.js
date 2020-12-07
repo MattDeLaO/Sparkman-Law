@@ -4,46 +4,49 @@ import styled from "styled-components"
 import Img from "gatsby-image"
 import { FiMenu, FiX } from "react-icons/fi"
 import { SocialMedia } from "./SocialMedia"
+import { PhoneNumberSection } from "./PhoneNumberSection"
+import { ScheduleConsultation } from "./ScheduleConsultation"
 
-const DesktopView = styled.div`
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  align-items: center;
-  @media screen and (min-width: 320px) {
-    display: none;
-  }
-  @media screen and (min-width: 768px) {
-    display: none;
-  }
-  @media screen and (min-width: 1224px) {
-    display: flex;
-  }
-`
-const DesktopNavContent = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-end;
-  width: 80%;
-  padding-right: 2%;
-`
+// const DesktopView = styled.div`
+//   display: flex;
+//   width: 100%;
+//   justify-content: center;
+//   align-items: center;
+//   @media screen and (min-width: 320px) {
+//     display: none;
+//   }
+//   @media screen and (min-width: 768px) {
+//     display: none;
+//   }
+//   @media screen and (min-width: 1224px) {
+//     display: flex;
+//   }
+// `
+// const DesktopNavContent = styled.div`
+//   display: flex;
+//   flex-direction: row;
+//   align-items: center;
+//   justify-content: flex-end;
+//   width: 80%;
+//   padding-right: 2%;
+// `
 const HeaderWrapper = styled.div`
   display: flex;
+  width: 100%;
+  position: absolute;
   top: 0;
-  z-index: 99;
   min-height: 12vh;
   justify-content: space-evenly;
   align-items: center;
-  color: black;
+  color: white;
 `
-const Links = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  height: 100%;
-  padding-right: 3%;
-`
+// const Links = styled.div`
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-evenly;
+//   height: 100%;
+//   padding-right: 3%;
+// `
 export const Menu = styled.button`
   position: absolute;
   color: black;
@@ -67,7 +70,7 @@ const MobileView = styled.div`
     display: flex;
   }
   @media screen and (min-width: 1224px) {
-    display: none;
+    display: flex;
   }
 `
 const MobileNavContent = styled.div`
@@ -81,6 +84,7 @@ const MobileNavContent = styled.div`
 const StyledContactLink = styled.a`
   display: flex;
   justify-content: center;
+  position: relative;
   align-items: center;
   margin: 6px;
   padding: 10px;
@@ -160,11 +164,11 @@ export const NavLinkList = styled.div`
   height: 100vh;
   top: 0;
   right: 0;
-  z-index: 99;
+  z-index: 40;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-width: 65vw;
+  min-width: 50vw;
   background: white;
   border-bottom: 1px solid #494949;
   border-bottom-left-radius: 5px;
@@ -193,7 +197,7 @@ export const Header = () => {
   const SitePages = links.site.siteMetadata.menuLinks
   return (
     <HeaderWrapper>
-      <DesktopView>
+      {/* <DesktopView>
         <DesktopNavContent>
           <Links>
             {SitePages.map(page =>
@@ -208,7 +212,7 @@ export const Header = () => {
           </Links>
           <SocialMedia />
         </DesktopNavContent>
-      </DesktopView>
+      </DesktopView> */}
       <MobileView>
         <Menu>
           {isOpen ? (
@@ -220,16 +224,20 @@ export const Header = () => {
         {isOpen && (
           <NavLinkList>
             <MobileNavContent>
-            {SitePages.map(page =>
-              page.name === "Contact" ? (
-                <StyledContactLink href="#Contact">Contact</StyledContactLink>
-              ) : (
-                <StyledLink href={`#${page.link}`}>
-                  {page.name}
-                </StyledLink>
-              )
-            )}
-              <SocialMedia />
+              {SitePages.map(page =>
+                page.name === "Contact" ? (
+                  <StyledContactLink href="#Contact" key={page.name}>
+                    Contact
+                  </StyledContactLink>
+                ) : (
+                  <StyledLink href={`#${page.link}`} key={page.name}>
+                    {page.name}
+                  </StyledLink>
+                )
+              )}
+
+              <PhoneNumberSection />
+              <ScheduleConsultation />
             </MobileNavContent>
           </NavLinkList>
         )}

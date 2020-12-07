@@ -13,6 +13,7 @@ const SectionWrapper = styled.div`
   transition: opacity 1s ease-out;
   will-change: opacity, visibility;
   transition-delay: 200ms;
+  z-index: 99;
 `
 const SectionTitle = styled.h2`
   border: 3px solid;

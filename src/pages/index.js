@@ -9,10 +9,14 @@ import {
   Table,
   Section,
   StyledBulletList,
-} from "../components"
+} from "../components/index.js"
 import { FcApproval } from "react-icons/fc"
-import HeroImage from "../images/HeroImage.jpg"
+// import HeroImage from "../images/HeroImage.jpg"
+import StyledBackgroundSection from '../components/StyledBackgroundSection' 
+import '../styles/background-image.css'
 import { MdGavel } from "react-icons/md"
+import { SocialMedia } from '../components/SocialMedia'
+import {StyledContactLink } from '../components/StyledContactLink'
 
 export const Parallax = styled.div`
   display: flex;
@@ -31,7 +35,7 @@ export const Parallax = styled.div`
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
+    background-position: contain;
     position: absolute;
     z-index: -1;
     opacity: ${props => (props.opacity ? props.opacity : 0.6)};
@@ -55,13 +59,13 @@ const ServicesSection = styled.div`
     height: 100%;
     content: "";
     background: inherit;
-    z-index: -1;
+    z-index: 2;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
     transform-origin: top left;
-    transform: skewY(-10deg);
+    transform: skewY(-8deg);
   }
   :before {
     position: absolute;
@@ -69,13 +73,13 @@ const ServicesSection = styled.div`
     height: 100%;
     content: "";
     background: inherit;
-    z-index: -1;
+    z-index: 2;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
     transform-origin: top right;
-    transform: skewY(10deg);
+    transform: skewY(8deg);
   }
   @media screen and (min-width: 320px) {
     font-size: 1em;
@@ -111,6 +115,7 @@ const WhiteSection = styled.div`
     left: 0;
     transform-origin: top left;
     transform: skewY(-5deg);
+    z-index: 3;
   }
   @media screen and (min-width: 320px) {
     font-size: 1em;
@@ -149,6 +154,7 @@ const BlackSection = styled.div`
     left: 0;
     transform-origin: bottom right;
     transform: skewY(5deg);
+    z-index: ${props => props.zIndex};
   }
   @media screen and (min-width: 320px) {
     font-size: 1em;
@@ -161,6 +167,7 @@ const BlackSection = styled.div`
   }
 `
 const ServicesContentWrapper = styled.div`
+margin-top: 0;
   display: flex;
   justify-content: space-evenly;
   width: 96vw;
@@ -185,17 +192,9 @@ const Spacer = styled.div`
   flex-direction: column;
   margin-bottom: 5%;
   width: 100%;
+  height: 1vh;
   position: relative;
   z-index: 1;
-  @media screen and (min-width: 320px) {
-    height: 55vh;
-  }
-  @media screen and (min-width: 768px) {
-    height: 55vh;
-  }
-  @media screen and (min-width: 1224px) {
-    height: 30vh;
-  }
 `
 const Disclaimer = styled.p`
   max-width: 80%;
@@ -210,21 +209,51 @@ const Disclaimer = styled.p`
     font-size: 16px;
   }
 `
-const ImageWrapper = styled.div`
+// const CenterImage = styled.div`
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+// `
+const Title = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+  text-shadow: 1px 1px 1px black;
   @media screen and (min-width: 320px) {
-    width: 40%;
+    font-size: 1.5em;
   }
   @media screen and (min-width: 768px) {
-    width: 40%;
+    font-size: 4em;
   }
   @media screen and (min-width: 1224px) {
-    width: 35%;
+    font-size: 4em;
   }
 `
-const CenterImage = styled.div`
+const CTASection = styled.div`
   display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: flex-start;
   align-items: center;
-  justify-content: center;
+  padding-bottom: 10%;
+`
+
+const ImageWrapper = styled.div`
+  @media screen and (min-width: 320px) {
+    width: 30%;
+  }
+  @media screen and (min-width: 768px) {
+    width: 20%;
+  }
+  @media screen and (min-width: 1224px) {
+    width: 10%;
+  }
 `
 const IndexPage = () => {
   const image = useStaticQuery(graphql`
@@ -236,19 +265,37 @@ const IndexPage = () => {
           }
         }
       }
+      logo: file(relativePath: { eq: "SparkmanLogo.png" }) {
+        childImageSharp {
+          fluid(quality: 90, maxWidth: 1920) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
     }
   `)
+  const logo = image.logo.childImageSharp.fluid
 
   return (
     <MainLayout>
-      <Parallax img={HeroImage} opacity={1}>
-        <Header />
-        <Spacer />
-        <CenterImage>
+      <Header />
+      <StyledBackgroundSection />
+      <Spacer>
+      <CTASection>
+        <ImageWrapper>
+          <Img fluid={logo} alt="" />
+        </ImageWrapper>
+        <Title>Sparkman Law Firm PLLC</Title>
+        <StyledContactLink />
+        <SocialMedia />
+        
+      </CTASection>
+      </Spacer>
+        {/* <CenterImage>
           <ImageWrapper>
             <Img fluid={image.file.childImageSharp.fluid} />
           </ImageWrapper>
-        </CenterImage>
+        </CenterImage> */}
         <ServicesSection id="Services">
           <ScheduleConsultation />
           <Section title="Services" primary>
@@ -335,7 +382,7 @@ const IndexPage = () => {
             </ServicesContentWrapper>
           </Section>
         </ServicesSection>
-        <BlackSection id="About">
+        <BlackSection id="About" zIndex={2}>
           <Section title="About">
             <p>
               Sarah Sparkman has been representing clients in Arkansas for more
@@ -397,7 +444,7 @@ const IndexPage = () => {
             />
           </Section>
         </WhiteSection>
-        <BlackSection id="Contact">
+        <BlackSection id="Contact" zIndex={4}>
           <Section title="Contact">
             <p>
               Have a criminal, traffic, or local law issue? Contact Sparkman Law
@@ -415,7 +462,6 @@ const IndexPage = () => {
             </Disclaimer>
           </Section>
         </BlackSection>
-      </Parallax>
     </MainLayout>
   )
 }

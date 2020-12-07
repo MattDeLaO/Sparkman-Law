@@ -11,10 +11,11 @@ const ScheduleConsultationWrapper = styled.a`
   position: relative;
   border: 4px solid transparent;
   border-radius: 10px;
-  background: #EBEBEB;
+  background: black;
+  color: white;
   background-clip: padding-box;
   padding: 10px;
-  color: black;
+ 
   margin: 2%;
   text-transform: uppercase;
   :after {

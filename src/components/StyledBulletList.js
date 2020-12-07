@@ -34,7 +34,7 @@ export const StyledBulletList = ({ icon, listData, primary }) => {
     <StyledList primary={primary}>
       {listData.map((text, index) => (
         <StyledBulletPoint key={index}>
-          {icon && <StyledIcon>{icon}</StyledIcon>}
+          {icon && <StyledIcon key={index}>{icon}</StyledIcon>}
           {text}
         </StyledBulletPoint>
       ))}
