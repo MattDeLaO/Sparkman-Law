@@ -32,7 +32,7 @@ const CTASection = styled.div`
   flex-direction: column;
   width: 100%;
   height: 50vh;
-  justify-content: flex-start;
+  justify-content: space-evenly;
   align-items: center;
   padding-bottom: 10%;
 `
@@ -71,7 +71,6 @@ const BackgroundSection = ({ className }) => {
     `
   )
 
-  // Set ImageData.
   const background = data.desktop.childImageSharp.fluid
   const logo = data.logo.childImageSharp.fluid
 
@@ -100,7 +99,7 @@ const StyledBackgroundSection = styled(BackgroundSection)`
   align-items: center;
   width: 100%;
   height: 100vh;
-  background-position: center bottom;
+  background-position: 50% 20%;
   background-size: cover;
 `
 

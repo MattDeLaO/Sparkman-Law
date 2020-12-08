@@ -33,10 +33,4 @@ const TableWrapper = styled.table`
     font-size: 16;
   }
 `
-export const Table = ({ children }) => {
-  return (
-    <TableWrapper>
-        {children}
-    </TableWrapper>
-  )
-}
+export const Table = ({ children }) =>  <TableWrapper>{children}</TableWrapper>

@@ -31,17 +31,8 @@ const SocialMediaIcons = styled.a`
 const SocialMediaLinksSection = styled.div`
   display: flex;
 `
-const ContactSection = styled.div`
-  display: flex;
-  height: 100%;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-  margin-right: 10px;
-`
 export const SocialMedia = () => {
   return (
-    <ContactSection>
       <SocialMediaLinksSection>
         <SocialMediaIcons
           href="https://twitter.com/sparkmanlaw"
@@ -68,6 +59,5 @@ export const SocialMedia = () => {
           <FiYoutube size={20} />
         </SocialMediaIcons>
       </SocialMediaLinksSection>
-    </ContactSection>
   )
 }

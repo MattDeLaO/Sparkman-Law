@@ -1,35 +1,10 @@
 import React, { useState } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
-import Img from "gatsby-image"
 import { FiMenu, FiX } from "react-icons/fi"
-import { SocialMedia } from "./SocialMedia"
 import { PhoneNumberSection } from "./PhoneNumberSection"
 import { ScheduleConsultation } from "./ScheduleConsultation"
 
-// const DesktopView = styled.div`
-//   display: flex;
-//   width: 100%;
-//   justify-content: center;
-//   align-items: center;
-//   @media screen and (min-width: 320px) {
-//     display: none;
-//   }
-//   @media screen and (min-width: 768px) {
-//     display: none;
-//   }
-//   @media screen and (min-width: 1224px) {
-//     display: flex;
-//   }
-// `
-// const DesktopNavContent = styled.div`
-//   display: flex;
-//   flex-direction: row;
-//   align-items: center;
-//   justify-content: flex-end;
-//   width: 80%;
-//   padding-right: 2%;
-// `
 const HeaderWrapper = styled.div`
   display: flex;
   width: 100%;
@@ -40,13 +15,6 @@ const HeaderWrapper = styled.div`
   align-items: center;
   color: white;
 `
-// const Links = styled.div`
-//   display: flex;
-//   align-items: center;
-//   justify-content: space-evenly;
-//   height: 100%;
-//   padding-right: 3%;
-// `
 export const Menu = styled.button`
   position: absolute;
   color: black;
@@ -197,22 +165,6 @@ export const Header = () => {
   const SitePages = links.site.siteMetadata.menuLinks
   return (
     <HeaderWrapper>
-      {/* <DesktopView>
-        <DesktopNavContent>
-          <Links>
-            {SitePages.map(page =>
-              page.name === "Contact" ? (
-                <StyledContactLink href="#Contact">Contact</StyledContactLink>
-              ) : (
-                <StyledLink href={`#${page.link}`}>
-                  {page.name}
-                </StyledLink>
-              )
-            )}
-          </Links>
-          <SocialMedia />
-        </DesktopNavContent>
-      </DesktopView> */}
       <MobileView>
         <Menu>
           {isOpen ? (
