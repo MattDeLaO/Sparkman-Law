@@ -11,12 +11,16 @@ const Title = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  width: 100%;
+  max-width: 95%;
+  margin-top: 2%;
+  margin-bottom: 2%;
   color: white;
   text-transform: uppercase;
   letter-spacing: 2px;
   text-align: center;
-  text-shadow: 1px 1px 1px black;
+  text-shadow: 3px 3px 3px black;
+  border-bottom: 1px solid;
+  border-image: linear-gradient(45deg, red, orange) 1;
   @media screen and (min-width: 320px) {
     font-size: 1.5em;
   }

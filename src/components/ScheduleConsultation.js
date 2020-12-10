@@ -15,8 +15,9 @@ const ScheduleConsultationWrapper = styled.a`
   color: white;
   background-clip: padding-box;
   padding: 10px;
-
   margin: 2%;
+  max-width: 75%;
+  text-align: center;
   text-transform: uppercase;
   :after {
     position: absolute;
@@ -30,13 +31,13 @@ const ScheduleConsultationWrapper = styled.a`
     border-radius: 10px;
   }
   @media screen and (min-width: 320px) {
-    font-size: 0.6em;
+    font-size: 10px;
   }
   @media screen and (min-width: 768px) {
-    font-size: 0.7em;
+    font-size: 12px;
   }
   @media screen and (min-width: 1224px) {
-    font-size: 1em;
+    font-size: 14px;
   }
   visibility: ${props => (props.isVisible ? "visible" : "hidden")};
   opacity: ${props => (props.isVisible ? 1 : 0)};

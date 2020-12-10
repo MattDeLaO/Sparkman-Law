@@ -40,9 +40,10 @@ const Content = styled.div`
   justify-content: space-evenly;
   padding-right: 2%;
   padding-left: 2%;
+  padding-top: 4%;
+  padding-bottom: 5%;
   color: ${props => (props.primary ? "black" : "white")};
   z-index: 10;
-  min-height: 60vh;
   visibility: ${props => (props.isVisible ? "visible" : "hidden")};
   opacity: ${props => (props.isVisible ? 1 : 0)};
   transition: opacity 1s ease-out;

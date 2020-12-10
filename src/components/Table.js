@@ -4,7 +4,7 @@ import styled from "styled-components"
 const TableWrapper = styled.table`
   border: 1px solid black;
   margin: 10px;
-  max-width: 90%;
+  max-width: 95%;
   color: black;
   border: 3px solid;
   border-image: linear-gradient(45deg, orange, red) 1;

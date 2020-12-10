@@ -13,8 +13,6 @@ import {
 import { FcApproval } from "react-icons/fc"
 import { MdGavel } from "react-icons/md"
 
-
-
 const ServicesSection = styled.div`
   display: flex;
   justify-content: space-evenly;
@@ -133,10 +131,33 @@ const Disclaimer = styled.p`
     font-size: 16px;
   }
 `
+const BackToTop = styled.a`
+  color: white;
+  border-bottom: 1px solid;
+  border-image: linear-gradient(45deg, orange, red) 1;
+  padding: 2%;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  margin: 20px;
+  @media screen and (min-width: 320px) {
+    font-size: 8px;
+  }
+  @media screen and (min-width: 768px) {
+    font-size: 10px;
+  }
+  @media screen and (min-width: 1224px) {
+    font-size: 12px;
+  }
+`
 const IndexPage = () => {
   return (
     <MainLayout>
-      <Header />
+      <Header id="Top" />
       <StyledBackgroundSection />
       <ServicesSection id="Services">
         <ScheduleConsultation />
@@ -189,7 +210,7 @@ const IndexPage = () => {
             <Table>
               <tbody>
                 <tr>
-                  <th>Landlord/Tenant</th>
+                  <th>Landlord / Tenant</th>
                 </tr>
                 <tr>
                   <td>Unlawful Detainer/Evictions</td>
@@ -302,6 +323,7 @@ const IndexPage = () => {
             does not contain legal advice. Please do not act or refrain from
             acting based on anything you read on this site.
           </Disclaimer>
+          <BackToTop href="#Top">Back To Top</BackToTop>
         </Section>
       </BlackSection>
     </MainLayout>
