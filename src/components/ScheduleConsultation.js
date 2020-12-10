@@ -9,9 +9,8 @@ const ScheduleConsultationWrapper = styled.a`
   align-items: center;
   text-decoration: none;
   position: relative;
-  border: 4px solid transparent;
   border-radius: 10px;
-  background: black;
+  background: linear-gradient(45deg, red, orange);
   color: white;
   background-clip: padding-box;
   padding: 10px;
@@ -19,25 +18,14 @@ const ScheduleConsultationWrapper = styled.a`
   max-width: 75%;
   text-align: center;
   text-transform: uppercase;
-  :after {
-    position: absolute;
-    top: -4px;
-    bottom: -4px;
-    left: -4px;
-    right: -4px;
-    background: linear-gradient(45deg, red, orange);
-    content: "";
-    z-index: -10;
-    border-radius: 10px;
-  }
   @media screen and (min-width: 320px) {
-    font-size: 10px;
+    font-size: .4em;
   }
   @media screen and (min-width: 768px) {
-    font-size: 12px;
+    font-size: .9em;
   }
   @media screen and (min-width: 1224px) {
-    font-size: 14px;
+    font-size: 1.3em;
   }
   visibility: ${props => (props.isVisible ? "visible" : "hidden")};
   opacity: ${props => (props.isVisible ? 1 : 0)};
@@ -48,7 +36,7 @@ const ScheduleConsultationWrapper = styled.a`
   -moz-box-shadow: -4px 4px 5px -1px rgba(0, 0, 0, 0.37);
   box-shadow: -4px 4px 5px -1px rgba(0, 0, 0, 0.37);
   :hover {
-    padding: 5px;
+    padding: 15px;
   }
 `
 const StyledCalendarIcon = styled.div`
