@@ -20,6 +20,9 @@ const Title = styled.div`
   text-align: center;
   text-shadow: 3px 3px 3px black;
   border-bottom: 1px solid;
+  border-right: 0px;
+  border-left: 0px;
+  border-top: 0px;
   border-image: linear-gradient(45deg, red, orange) 1;
   @media screen and (min-width: 320px) {
     font-size: 1.5em;

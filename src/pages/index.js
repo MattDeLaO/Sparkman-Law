@@ -135,9 +135,8 @@ const BackToTop = styled.a`
   color: white;
   border-bottom: 1px solid;
   border-right: 0px;
-  border-left-style: none;
-  border-right-style: none;
-  border-top-style: none;
+  border-left: 0px;
+  border-top: 0px;
   border-image: linear-gradient(45deg, orange, red) 1;
   padding: 2%;
   letter-spacing: 4px;
