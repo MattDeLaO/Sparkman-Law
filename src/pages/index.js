@@ -1,40 +1,19 @@
 import React from "react"
 import styled from "styled-components"
 import MainLayout from "../components/MainLayout"
+import StyledBackgroundSection from "../components/StyledBackgroundSection"
 import {
   Header,
-  ScheduleConsultation,
-  Table,
   Section,
+  ScheduleConsultation,
   StyledBulletList,
+  Table,
+  Text,
 } from "../components/index.js"
 import { FcApproval } from "react-icons/fc"
-import StyledBackgroundSection from "../components/StyledBackgroundSection"
 import { MdGavel } from "react-icons/md"
 
-export const Parallax = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  min-height: 100vh;
-  position: relative;
-  ::before {
-    content: " ";
-    display: block;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background-image: url(${props => props.img});
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: contain;
-    position: absolute;
-    z-index: -1;
-    opacity: ${props => (props.opacity ? props.opacity : 0.6)};
-  }
-`
+
 
 const ServicesSection = styled.div`
   display: flex;
@@ -247,15 +226,15 @@ const IndexPage = () => {
       </ServicesSection>
       <BlackSection id="About" zIndex={2}>
         <Section title="About">
-          <p>
+          <Text>
             Sarah Sparkman has been representing clients in Arkansas for more
             than a decade. When Sarah takes on your case, she knows that you’re
             trusting her to fight for you.
-          </p>
-          <p>
+          </Text>
+          <Text>
             Sarah’s legal experience is unparalleled in Northwest Arkansas. Part
             of what she has done:
-          </p>
+          </Text>
           <StyledBulletList
             icon={<MdGavel size={30} style={{ color: "#FF5400" }} />}
             listData={[
@@ -267,32 +246,32 @@ const IndexPage = () => {
               "Try cases in Circuit and District Courts throughout the state of Arkansas.",
             ]}
           />
-          <p>
+          <Text>
             In addition to fighting for her clients, Sarah is a sought out
             speaker in the state of Arkansas on the topics of social media and
             attorney ethics, mental health issues and public service.
-          </p>
-          <p>
+          </Text>
+          <Text>
             Sarah is a proud graduate of the University of Arkansas and the
             Arkansas School for Mathematics and Sciences. She lives in
             Fayetteville with her husband and their two rescue dogs. An avid fan
             of the Kansas City Royals, Sarah was named as a must-follow on
             Twitter for the Major League Baseball postseason by the Sporting
             News.
-          </p>
-          <p>
+          </Text>
+          <Text>
             Have a criminal, traffic, or local law issue? Contact Sparkman Law
             Firm for a consultation today.
-          </p>
+          </Text>
         </Section>
       </BlackSection>
       <WhiteSection id="WhySparkmanLaw">
         <Section title="Why Sparkman Law Firm?" primary>
-          <p>
+          <Text>
             If you’re in a situation where you need to hire an attorney, it’s
             likely you’re not having a great day. Sparkman Law Firm offers you
             the following to ease your worries:
-          </p>
+          </Text>
           <StyledBulletList
             icon={<FcApproval size={40} />}
             listData={[
@@ -309,10 +288,10 @@ const IndexPage = () => {
       </WhiteSection>
       <BlackSection id="Contact" zIndex={4}>
         <Section title="Contact">
-          <p>
+          <Text>
             Have a criminal, traffic, or local law issue? Contact Sparkman Law
             Firm for a consultation today.
-          </p>
+          </Text>
           <ScheduleConsultation />
           <Disclaimer>
             Viewing this website does not form an attorney/client

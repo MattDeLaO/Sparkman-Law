@@ -4,6 +4,7 @@ import styled from "styled-components"
 import { FiMenu, FiX } from "react-icons/fi"
 import { PhoneNumberSection } from "./PhoneNumberSection"
 import { ScheduleConsultation } from "./ScheduleConsultation"
+import { motion } from "framer-motion"
 
 const HeaderWrapper = styled.div`
   display: flex;
@@ -126,7 +127,7 @@ const StyledLink = styled.a`
     font-size: 1.2em;
   }
 `
-export const NavLinkList = styled.div`
+export const NavLinkList = styled(motion.div)`
   display: flex;
   position: absolute;
   height: 100vh;
@@ -174,24 +175,31 @@ export const Header = () => {
           )}
         </Menu>
         {isOpen && (
-          <NavLinkList>
-            <MobileNavContent>
-              {SitePages.map(page =>
-                page.name === "Contact" ? (
-                  <StyledContactLink href="#Contact" key={page.name}>
-                    Contact
-                  </StyledContactLink>
-                ) : (
-                  <StyledLink href={`#${page.link}`} key={page.name}>
-                    {page.name}
-                  </StyledLink>
-                )
-              )}
+            <NavLinkList
+              key="side-menu"
+              animate={{ x: 0 }}
+              initial={{ x: "100%" }}
+              exit={{ x: "100%" }}
+              transition={{ ease: "easeOut", duration: 0.3 }}
+            >
+              <MobileNavContent>
+                {SitePages.map(page =>
+                  page.name === "Contact" ? (
+                    <StyledContactLink href="#Contact" key={page.name}>
+                      Contact
+                    </StyledContactLink>
+                  ) : (
+                    <StyledLink href={`#${page.link}`} key={page.name}>
+                      {page.name}
+                    </StyledLink>
+                  )
+                )}
 
-              <PhoneNumberSection />
-              <ScheduleConsultation />
-            </MobileNavContent>
-          </NavLinkList>
+                <PhoneNumberSection />
+                <ScheduleConsultation />
+              </MobileNavContent>
+            </NavLinkList>
+
         )}
       </MobileView>
     </HeaderWrapper>

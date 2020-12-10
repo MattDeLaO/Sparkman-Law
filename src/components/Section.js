@@ -37,7 +37,7 @@ const Content = styled.div`
   display: flex;
   flex-direction: ${props => (props.secondary ? "row" : "column")};
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   padding-right: 2%;
   padding-left: 2%;
   color: ${props => (props.primary ? "black" : "white")};
@@ -47,7 +47,7 @@ const Content = styled.div`
   opacity: ${props => (props.isVisible ? 1 : 0)};
   transition: opacity 1s ease-out;
   will-change: opacity, visibility;
-  transition-delay: 200ms;
+  transition-delay: 240ms;
   p {
     margin-bottom: 2%;
   }
@@ -60,7 +60,6 @@ export const Section = props => {
     const observer = new IntersectionObserver(entries => {
       // In your case there's only one element to observe:
       if (entries[0].isIntersecting) {
-        // Not possible to set it back to false like this:
         setVisible(true)
         // No need to keep observing:
         observer.unobserve(domRef.current)

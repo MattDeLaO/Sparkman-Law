@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useRef, useState, useEffect} from "react"
 import styled from "styled-components"
 
 const TableWrapper = styled.table`
@@ -12,6 +12,11 @@ const TableWrapper = styled.table`
   -moz-box-shadow: -4px 4px 5px -1px rgba(0, 0, 0, 0.37);
   box-shadow: -4px 4px 5px -1px rgba(0, 0, 0, 0.37);
   text-align: center;
+  visibility: ${props => (props.isVisible ? "visible" : "hidden")};
+  opacity: ${props => (props.isVisible ? 1 : 0)};
+  transition: opacity 1s ease-out;
+  will-change: opacity, visibility;
+  transition-delay: 200ms;
   th {
     background: black;
     color: white;
@@ -22,15 +27,30 @@ const TableWrapper = styled.table`
   }
   td {
     padding: 15px;
-  }
-  @media screen and (min-width: 320px) {
-    font-size: 12;
-  }
-  @media screen and (min-width: 768px) {
-    font-size: 14;
-  }
-  @media screen and (min-width: 1224px) {
-    font-size: 16;
+    font-size: 14px;
   }
 `
-export const Table = ({ children }) =>  <TableWrapper>{children}</TableWrapper>
+export const Table = ({ children }) => {
+  const domRef = useRef()
+  const [isVisible, setVisible] = useState(false)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(entries => {
+      // In your case there's only one element to observe:
+      if (entries[0].isIntersecting) {
+        setVisible(true)
+        // No need to keep observing:
+        observer.unobserve(domRef.current)
+      }
+    })
+
+    observer.observe(domRef.current)
+
+    return () => observer.unobserve(domRef.current)
+  }, [])
+  return (
+    <TableWrapper ref={domRef} isVisible={isVisible}>
+      {children}
+    </TableWrapper>
+  )
+}
