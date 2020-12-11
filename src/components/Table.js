@@ -3,7 +3,7 @@ import styled from "styled-components"
 
 const TableWrapper = styled.table`
   border: 1px solid black;
-  margin: 10px;
+  margin: 2%;
   max-width: 95%;
   color: black;
   border: 3px solid;

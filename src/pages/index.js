@@ -3,7 +3,9 @@ import styled from "styled-components"
 import MainLayout from "../components/MainLayout"
 import StyledBackgroundSection from "../components/StyledBackgroundSection"
 import {
+  Address,
   Header,
+  PhoneNumberSection,
   Section,
   ScheduleConsultation,
   StyledBulletList,
@@ -291,7 +293,7 @@ const IndexPage = () => {
       </BlackSection>
       <WhiteSection id="WhySparkmanLaw">
         <Section title="Why Sparkman Law Firm?" primary>
-          <Text>
+          <Text secondary>
             If you’re in a situation where you need to hire an attorney, it’s
             likely you’re not having a great day. Sparkman Law Firm offers you
             the following to ease your worries:
@@ -317,6 +319,8 @@ const IndexPage = () => {
             Firm for a consultation today.
           </Text>
           <ScheduleConsultation />
+          <Address />
+          <PhoneNumberSection secondary/>
           <Disclaimer>
             Viewing this website does not form an attorney/client
             relationshiDisclaimer between you and the attorneys of Sparkman Law

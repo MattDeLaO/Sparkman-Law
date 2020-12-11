@@ -16,16 +16,16 @@ const PhoneNumberWrapper = styled.div`
   margin-top: 10%;
   margin-bottom: 10%;
   display: flex;
-  color: black;
+  color: ${props => props.secondary ? 'white' : 'black'};
   a {
     text-decoration: none;
     color: inherit;
   }
 `
 
-export const PhoneNumberSection = () => {
+export const PhoneNumberSection = props => {
   return (
-    <PhoneNumberWrapper>
+    <PhoneNumberWrapper secondary={props.secondary}>
       <PhoneNumber href="tel: +1- 479-430-2701">479-430-2701</PhoneNumber>
     </PhoneNumberWrapper>
   )

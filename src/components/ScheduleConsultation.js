@@ -15,11 +15,11 @@ const ScheduleConsultationWrapper = styled.a`
   background-clip: padding-box;
   padding: 10px;
   margin: 2%;
-  max-width: 75%;
+  max-width: 90%;
   text-align: center;
   text-transform: uppercase;
   @media screen and (min-width: 320px) {
-    font-size: .4em;
+    font-size: .6em;
   }
   @media screen and (min-width: 768px) {
     font-size: .9em;
