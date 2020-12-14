@@ -37,7 +37,7 @@ const Title = styled.div`
 const CTASection = styled.div`
   display: flex;
   flex-direction: column;
-  height: 45vh;
+  max-height: 45vh;
   width: 100%;
   justify-content: space-evenly;
   align-items: center;
