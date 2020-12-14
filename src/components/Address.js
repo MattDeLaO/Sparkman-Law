@@ -7,8 +7,9 @@ const StyledAddress = styled.div`
   justify-content: center;
   text-align: center;
   height: 20%;
-  margin-top: 20px;
+  margin-top: 10%;
   margin-bottom: 10px;
+  letter-spacing: 1px;
   color: ${props => (props.secondary ? "black" : "white")};
 `
 export const Address = props => {
