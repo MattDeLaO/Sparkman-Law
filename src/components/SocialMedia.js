@@ -37,24 +37,28 @@ export const SocialMedia = () => {
         <SocialMediaIcons
           href="https://twitter.com/sparkmanlaw"
           target="_blank"
+          alt="Twitter Link"
         >
           <FiTwitter size={20} />
         </SocialMediaIcons>
         <SocialMediaIcons
           href="https://Facebook.com/sparkmanlawnwa"
           target="_blank"
+          alt="Facebook Link"
         >
           <FiFacebook size={20} />
         </SocialMediaIcons>
         <SocialMediaIcons
           href="https://instagram.com/sarahsparkmanlaw"
           target="_blank"
+          alt="Instagram Link"
         >
           <FiInstagram size={20} />
         </SocialMediaIcons>
         <SocialMediaIcons
           href="https://www.youtube.com/channel/UCbCDnEUTR17DtK6akCjEyNw"
           target="_blank"
+          alt="YouTube Link"
         >
           <FiYoutube size={20} />
         </SocialMediaIcons>

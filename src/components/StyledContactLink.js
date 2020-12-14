@@ -44,6 +44,6 @@ const ContactLink = styled.a`
 `
 export const StyledContactLink = () => {
     return (
-        <ContactLink href="#Contact">Contact</ContactLink>
+        <ContactLink href="#Contact" alt="Contact Link">Contact</ContactLink>
     )
 }

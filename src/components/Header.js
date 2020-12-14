@@ -186,11 +186,11 @@ export const Header = () => {
               <MobileNavContent>
                 {SitePages.map(page =>
                   page.name === "Contact" ? (
-                    <StyledContactLink href="#Contact" key={page.name}>
+                    <StyledContactLink href="#Contact" key={page.name} alt="contact link">
                       Contact
                     </StyledContactLink>
                   ) : (
-                    <StyledLink href={`#${page.link}`} key={page.name}>
+                    <StyledLink href={`#${page.link}`} key={page.name} alt={`Link to ${page.name}`}>
                       {page.name}
                     </StyledLink>
                   )

@@ -71,6 +71,7 @@ export const ScheduleConsultation = () => {
       target="_blank"
       ref={domRef}
       isVisible={isVisible}
+      alt="Consultation Button"
     >
       <StyledCalendarIcon>
         <FcCalendar size={35} />
