@@ -13,7 +13,6 @@ const StyledText = styled.p`
 export const Text = props => {
   const domRef = useRef()
   const [isVisible, setVisible] = useState(false)
-  console.log(props);
   useEffect(() => {
     const observer = new IntersectionObserver(entries => {
       // In your case there's only one element to observe:

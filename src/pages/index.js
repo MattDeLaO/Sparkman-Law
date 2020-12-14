@@ -7,6 +7,7 @@ import {
   Header,
   PhoneNumberSection,
   Section,
+  SEOComponent,
   ScheduleConsultation,
   StyledBulletList,
   Table,
@@ -162,6 +163,7 @@ const BackToTop = styled.a`
 const IndexPage = () => {
   return (
     <MainLayout>
+      <SEOComponent />
       <Header id="Top" />
       <StyledBackgroundSection />
       <ServicesSection id="Services">

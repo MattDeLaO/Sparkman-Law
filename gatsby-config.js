@@ -1,8 +1,10 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Sparkman Law Firm PLLC`,
+    description: `Criminal and Traffic defense law firm offering convenience and unparalleled legal experience in Northwest Arkansas`,
+    url: `http://sarahsparkmanlaw.com/`,
+    author: `Sparkman Law Firm PLLC`,
+    image: './images/SparkmanLogoFull.png',
     menuLinks: [
       {
         name: 'Services',
@@ -45,12 +47,9 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Sparkman Law Firm PLLC`,
+        short_name: `Sparkman Law`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
-        display: `minimal-ui`,
         icon: `src/images/SparkmanLogo.png`, // This path is relative to the root of the site.
       },
     },
