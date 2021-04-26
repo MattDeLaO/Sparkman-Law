@@ -63,24 +63,23 @@ const BackgroundSection = ({ className }) => {
         desktop: file(relativePath: { eq: "HeroImage.jpg" }) {
           childImageSharp {
             fluid(quality: 90, maxWidth: 1920) {
-              ...GatsbyImageSharpFluid_withWebp
+              ...GatsbyImageSharpFluid
             }
           }
         }
         logo: file(relativePath: { eq: "SparkmanLogo.png" }) {
           childImageSharp {
             fluid(quality: 90, maxWidth: 1920) {
-              ...GatsbyImageSharpFluid_withWebp
+              ...GatsbyImageSharpFluid
             }
           }
         }
       }
     `
   )
-
   const background = data.desktop.childImageSharp.fluid
   const logo = data.logo.childImageSharp.fluid
-
+  
   return (
     <BackgroundImage
       Tag="section"

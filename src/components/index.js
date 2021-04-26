@@ -6,4 +6,3 @@ export { StyledBulletList } from "./StyledBulletList"
 export { Text } from "./Text"
 export { Address } from "./Address"
 export { PhoneNumberSection } from "./PhoneNumberSection"
-export { SEOComponent } from './SEOComponent'

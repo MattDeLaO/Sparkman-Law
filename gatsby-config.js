@@ -5,6 +5,7 @@ module.exports = {
     url: `http://sarahsparkmanlaw.com/`,
     author: `Sparkman Law Firm PLLC`,
     image: './images/SparkmanLogoFull.png',
+    keywords: `Sparkman Law, Sparkman Law Firm, Sarah Sparkman, Sarah attorney, criminal lawyer, Fayetteville, legal service, NWA attorney, traffic law `,
     menuLinks: [
       {
         name: 'Services',

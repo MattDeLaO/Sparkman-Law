@@ -5,85 +5,91 @@
  * See: https://www.gatsbyjs.com/docs/use-static-query/
  */
 
-import React from "react"
-import { Helmet } from "react-helmet"
-import { useStaticQuery, graphql } from "gatsby"
-
-export const SEOComponent = ({ description, lang, title, author, url, image, keywords }) => {
-  const { site } = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            description
-            url
-            author
-            image
-          }
-        }
-      }
-    `
-  )
-
-  const metaDescription = description || site.siteMetadata.description
-  const metaTitle = title || site.siteMetadata.title
-  const metaAuthor = author || site.siteMetadata.author
-  const metaUrl = url || site.siteMetadata.url
-  const metaImage = image || site.siteMetadata.image
-  const metaKeywords = keywords || [
-    "Sparkman Law Firm",
-    "Sparkman Law",
-    "Fayetteville, AR",
-    "Criminal Lawyer",
-    "Legal Service",
-    "Traffic Law",
-    "Northwest Arkansas Attorney",
-  ]
-
-  return (
-    <Helmet
-      htmlAttributes={{
-        lang,
-      }}
-      title={title}
-      meta={[
-        {
-          name: `description`,
-          content: metaDescription,
+ import * as React from "react"
+ import PropTypes from "prop-types"
+ import { Helmet } from "react-helmet"
+ import { useStaticQuery, graphql } from "gatsby"
+ 
+ function SEO({ description, lang, meta, title }) {
+   const { site } = useStaticQuery(
+     graphql`
+       query {
+         site {
+           siteMetadata {
+             title
+             description
+             author
+             keywords
+           }
+         }
+       }
+     `
+   )
+ 
+   const metaDescription = description || site.siteMetadata.description
+   const defaultTitle = site.siteMetadata?.title
+ 
+   return (
+     <Helmet
+       htmlAttributes={{
+         lang,
+       }}
+       title={title}
+       titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : null}
+       meta={[
+         {
+           name: `description`,
+           content: metaDescription,
+         },
+         {
+          name: `keywords`,
+          content: site.siteMetadata.keywords,
         },
-        {
-          property: `og:title`,
-          content: metaTitle,
-        },
-        {
-          property: `og:author`,
-          content: metaAuthor,
-        },
-        {
-          property: `og:url`,
-          content: metaUrl,
-        },
-        {
-          property: `og:description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:image`,
-          content: metaImage,
-        },
-        {
-          property: `og:type`,
-          content: `website`,
-        },
-      ].concat(
-        metaKeywords && metaKeywords.length > 0
-          ? {
-              name: `keywords`,
-              content: metaKeywords.join(`, `),
-            }
-          : []
-      )}
-    />
-  )
-}
+         {
+           property: `og:title`,
+           content: title,
+         },
+         {
+           property: `og:description`,
+           content: metaDescription,
+         },
+         {
+           property: `og:type`,
+           content: `website`,
+         },
+         {
+           name: `twitter:card`,
+           content: `summary`,
+         },
+         {
+           name: `twitter:creator`,
+           content: site.siteMetadata?.author || ``,
+         },
+         {
+           name: `twitter:title`,
+           content: title,
+         },
+         {
+           name: `twitter:description`,
+           content: metaDescription,
+         },
+       ].concat(meta)}
+     />
+   )
+ }
+ 
+ SEO.defaultProps = {
+   lang: `en`,
+   meta: [],
+   description: ``,
+ }
+ 
+ SEO.propTypes = {
+   description: PropTypes.string,
+   lang: PropTypes.string,
+   meta: PropTypes.arrayOf(PropTypes.object),
+   title: PropTypes.string.isRequired,
+ }
+ 
+ export default SEO
+ 

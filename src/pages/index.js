@@ -7,12 +7,12 @@ import {
   Header,
   PhoneNumberSection,
   Section,
-  SEOComponent,
   ScheduleConsultation,
   StyledBulletList,
   Table,
   Text,
 } from "../components/index.js"
+import SEOComponent from '../components/SEOComponent'
 import { FcApproval } from "react-icons/fc"
 import { MdGavel } from "react-icons/md"
 
@@ -163,7 +163,7 @@ const BackToTop = styled.a`
 const IndexPage = () => {
   return (
     <MainLayout>
-      <SEOComponent />
+      <SEOComponent title="Sparkman Law Homepage" />
       <Header id="Top" />
       <StyledBackgroundSection />
       <ServicesSection id="Services">
