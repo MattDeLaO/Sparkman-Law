@@ -12,7 +12,7 @@ import {
   Table,
   Text,
 } from "../components/index.js"
-import SEOComponent from '../components/SEOComponent'
+import SEOComponent from "../components/SEOComponent"
 import { FcApproval } from "react-icons/fc"
 import { MdGavel } from "react-icons/md"
 
@@ -160,6 +160,18 @@ const BackToTop = styled.a`
     font-size: 12px;
   }
 `
+
+const PhoneNumber = styled.a`
+  color: white;
+  text-decoration: none;
+  display: inline;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  :hover {
+    color: blue;
+  }
+`
 const IndexPage = () => {
   return (
     <MainLayout>
@@ -173,25 +185,38 @@ const IndexPage = () => {
             <Table>
               <tbody>
                 <tr>
-                  <th>Criminal and Traffic</th>
+                  <th>Criminal</th>
                 </tr>
                 <tr>
-                  <td>DWI</td>
+                  <td>DWI and Other Alcohol Crimes</td>
                 </tr>
                 <tr>
                   <td>Drug Cases</td>
                 </tr>
                 <tr>
-                  <td>Battery and Assault</td>
+                  <td>Battery and Other Crimes Against Persons</td>
                 </tr>
                 <tr>
-                  <td>Suspended Drivers License</td>
+                  <td>Theft and Other Property Crimes</td>
+                </tr>
+              </tbody>
+            </Table>
+            <Table>
+              <tbody>
+                <tr>
+                  <th>Traffic</th>
                 </tr>
                 <tr>
                   <td>Speeding</td>
                 </tr>
                 <tr>
                   <td>Reckless and Careless Driving</td>
+                </tr>
+                <tr>
+                  <td>Suspended Drivers License</td>
+                </tr>
+                <tr>
+                  <td>CDL Offenses</td>
                 </tr>
               </tbody>
             </Table>
@@ -211,19 +236,6 @@ const IndexPage = () => {
                 </tr>
                 <tr>
                   <td>Administrative Hearings</td>
-                </tr>
-              </tbody>
-            </Table>
-            <Table>
-              <tbody>
-                <tr>
-                  <th>Landlord / Tenant</th>
-                </tr>
-                <tr>
-                  <td>Unlawful Detainer/Evictions</td>
-                </tr>
-                <tr>
-                  <td>Eviction Notices</td>
                 </tr>
               </tbody>
             </Table>
@@ -255,41 +267,30 @@ const IndexPage = () => {
       <BlackSection id="About" zIndex={2}>
         <Section title="About">
           <Text>
-            Sarah Sparkman has been representing clients in Arkansas for more
-            than a decade. When Sarah takes on your case, she knows that you’re
-            trusting her to fight for you.
-          </Text>
-          <Text>
-            Sarah’s legal experience is unparalleled in Northwest Arkansas. Part
-            of what she has done:
+            Sarah Sparkman is a former prosecutor, skilled trial attorney, and
+            fierce advocate for her clients. She has been representing clients
+            in Arkansas for more than a decade. Part of what she has done during
+            her career:
           </Text>
           <StyledBulletList
             icon={<MdGavel size={30} style={{ color: "#FF5400" }} />}
             listData={[
               "Personally prosecute more than 8,000 criminal and traffic cases",
-              "Take on big banks and unethical landlords who attempted to illegally remove families from their homes",
-              "Work closely with state legislators to pass bills to protect victims of domestic violence",
-              "Advise city government officials including planners, city council members, and police officers, on legal matters",
-              "Teach legal topics and physical training at the Northwest Arkansas Law Enforcement Training Academy",
-              "Try cases in Circuit and District Courts throughout the state of Arkansas.",
+              "Try – and win - cases in Circuit and District Courts throughout Arkansas",
+              "Teach classes on traffic stops and investigations ",
+              "Testify before the state legislature regarding criminal law",
             ]}
           />
           <Text>
-            In addition to fighting for her clients, Sarah is a sought out
-            speaker in the state of Arkansas on the topics of social media and
-            attorney ethics, mental health issues and public service.
+            Hiring an attorney is an investment of time, money, and trust, and
+            Sarah takes her responsibility to her clients seriously. Sarah
+            provides zealous representation and individual attention to each of
+            her clients so that together, they can reach the best resolution
+            possible
           </Text>
           <Text>
-            Sarah is a proud graduate of the University of Arkansas and the
-            Arkansas School for Mathematics and Sciences. She lives in
-            Fayetteville with her husband and their two rescue dogs. An avid fan
-            of the Kansas City Royals, Sarah was named as a must-follow on
-            Twitter for the Major League Baseball postseason by the Sporting
-            News.
-          </Text>
-          <Text>
-            Have a criminal, traffic, or local law issue? Contact Sparkman Law
-            Firm for a consultation today.
+            Have you been charged with a crime or traffic offense? Contact
+            Sparkman Law Firm for a free consultation at <PhoneNumber href="tel: +1- 479-430-2701">(479) 430-2701</PhoneNumber>.
           </Text>
         </Section>
       </BlackSection>
@@ -322,15 +323,15 @@ const IndexPage = () => {
           </Text>
           <ScheduleConsultation />
           <Address />
-          <PhoneNumberSection secondary/>
+          <PhoneNumberSection secondary />
           <Disclaimer>
-            Viewing this website does not form an attorney/client
-            relationshiDisclaimer between you and the attorneys of Sparkman Law
-            Firm PLLC. No attorney/client relationship occurs unless and until
-            you sign an agreement confirming the nature and scope of
-            representation. This website is for informational purposes only and
-            does not contain legal advice. Please do not act or refrain from
-            acting based on anything you read on this site.
+            Viewing this website does not form an attorney/client relationship
+            between you and the attorneys of Sparkman Law Firm PLLC. No
+            attorney/client relationship occurs unless and until you sign an
+            agreement confirming the nature and scope of representation. This
+            website is for informational purposes only and does not contain
+            legal advice. Please do not act or refrain from acting based on
+            anything you read on this site.
           </Disclaimer>
           <BackToTop href="#Top">Back To Top</BackToTop>
         </Section>

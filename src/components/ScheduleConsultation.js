@@ -67,7 +67,7 @@ export const ScheduleConsultation = () => {
 
   return (
     <ScheduleConsultationWrapper
-      href="https://sparkman-law-firm-pllc.clientrock.app/book/consultation"
+      href="https://sparkmanlaw.cliogrow.com/book/932de4d271192382047a9503b6513de0"
       target="_blank"
       ref={domRef}
       isVisible={isVisible}
